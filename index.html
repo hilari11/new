@@ -1,0 +1,57 @@
+<div id="box" style="width: 300px; height: 300px; background-color: red"></div>
+<br/>
+<div>
+Pilih warna box :
+<select id="color-list">
+<option value="red" checked> Red </option>
+<option value="green" checked> Green </option>
+<option value="blue" checked> Blue </option>
+<option value="yellow" checked> Yellow </option>
+<option value="gray" checked> Gray </option>
+</select>
+Pilih ukuran box :
+<select id="size-list">
+<option value="200" checked>200</option>
+<option value="300" checked>300</option>
+<option value="400" checked>400</option>
+</select>
+</div>
+<div>
+Tampilkan box:
+<select id="box-show">
+<option value="block" checked>Show</option>
+<option value="none" checked>Hide</option>
+</select>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script>
+$(document).ready(function(){
+var box = $("#box");
+var sizeList = $("#size-list")
+var boxShow = $("#box-show")
+var colorList = $("#color-list")
+colorList.on('change', function(eventSelect){
+	box.css('backgroundColor', eventSelect.target.value);
+	});
+
+sizeList.on('change', function(eventSelect){
+	box.css('width', eventSelect.target.value);
+	box.css('height', eventSelect.target.value);
+	});
+
+boxShow.on('change', function(eventSelect){
+//if (eventSelect.target.value=="show") {
+box.css('display', eventSelect.target.value);
+//box.show(600);
+//}
+//else {
+//box.hide(600);
+//}
+// box[eventSelect.target.value]();
+});
+//var box = document.getElementById("box");
+//var colorList = document.getElementById("color-list");
+//box.style.backgroundColor = e.target.value;
+
+});
+
+</script>
